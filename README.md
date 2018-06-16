@@ -2,12 +2,14 @@
 Unification in Predicate Calculus
 
 
-##Unification
+## Unification
+
 In predicate calculus, unification is used to determine the substitutions neede to make two expressions match.
 This application uses LIST SYNTAX.
 
 
-###Example
+### Example
+
 Expression 1:
 (friends X (brother John))
  
