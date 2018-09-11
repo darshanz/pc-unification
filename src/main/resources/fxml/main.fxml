@@ -40,14 +40,14 @@
                <Insets left="10.0" />
            </BorderPane.margin>
            <children>
-               <TitledPane animated="false" collapsible="false" layoutX="-2.0" layoutY="2.0" prefHeight="200.0" prefWidth="528.0" style="-fx-border-color: #1d71cb; -fx-border-width: 1px;" text="Search" textFill="BLACK" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+               <TitledPane animated="false" collapsible="false" layoutX="-2.0" layoutY="2.0" prefHeight="200.0" prefWidth="528.0" style="-fx-border-color: #1d71cb; -fx-border-width: 1px;" text="Input" textFill="BLACK" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                    <content>
-                       <AnchorPane fx:id="chartPane" minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
+                       <AnchorPane fx:id="mainPane" minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Label layoutX="14.0" layoutY="5.0" text="First Expression" />
                         <Pane fx:id="panelUnify" layoutX="139.0" layoutY="85.0" prefHeight="77.0" prefWidth="166.0">
                            <children>
-                              <Button fx:id="btnSearch" layoutX="21.0" layoutY="41.0" mnemonicParsing="false" onAction="#onUnify" prefHeight="39.0" prefWidth="155.0" style="-fx-text-fill: #000000;" styleClass="btn-search" text="Unify" />
+                              <Button layoutX="21.0" layoutY="41.0" mnemonicParsing="false" onAction="#onUnify" prefHeight="39.0" prefWidth="155.0" style="-fx-text-fill: #000000;" text="Unify" />
                            </children>
                         </Pane>
                          <Label layoutX="15.0" layoutY="68.0" text="Second Expression" />
