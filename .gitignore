@@ -21,12 +21,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-build
-.gradle
-gradle
-out
+/build/
+.gradle/
+.idea/.name
+.idea/gradle.xml
+.idea/inspectionProfiles/
+.idea/workspace.xml
+build/resources/
+build/tmp/
+gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
-.idea/inspectionProfiles/
-build/tmp/compileJava/
-src/test/
+out/production/resources/

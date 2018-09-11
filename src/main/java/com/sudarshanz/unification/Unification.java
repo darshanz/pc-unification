@@ -1,6 +1,5 @@
 package com.sudarshanz.unification;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -42,7 +41,7 @@ public class Unification {
      * @param expression2
      * @return
      */
-    private static String unify( Expression expression1, Expression expression2){
+    private static String unify(Expression expression1, Expression expression2){
 
         if((expression1.getType() == Expression.TYPE_ATOM && expression2.getType() == Expression.TYPE_ATOM) || (expression1.isEmptyList() && expression2.isEmptyList())){
 
