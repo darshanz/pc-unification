@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextArea?>
+<BorderPane style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sudarshanz.unification.ui.AboutDialogController">
+   <center>
+      <VBox fx:id="formBasic" minHeight="0.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+             <AnchorPane fx:id="anchorPaymentType" prefHeight="40.0">
+                 <children>
+                     <Label layoutX="25.0" layoutY="12.0" text="UNIFICATON" />
+                     <Label layoutX="25.0" layoutY="30.0" text="In predicate calculus, unification is used to determine the substitutions needs to make two expressions match." />
+                     <Label layoutX="25.0" layoutY="50.0" text="This application uses LIST SYNTAX." />
+
+                     <Label layoutX="25.0" layoutY="100.0" text="EXAMPLE" />
+                     <Label layoutX="25.0" layoutY="125.0" text="Expression 1: (friends X (brother John))" />
+                     <Label layoutX="25.0" layoutY="150.0" text="Expression 2: (friends (sister Nancy) (brother Y))" />
+                     <Label layoutX="25.0" layoutY="175.0" text="Result: {(sister Nancy)/X, John/Y}" />
+                     <Label layoutX="25.0" layoutY="250.0" text="The source code for this application is available on Github : https://github.com/darshanz/pc-unification" />
+                     <Label layoutX="25.0" layoutY="275.0" text="     - Sudarshan Pant (Mokpo National University)" />
+                 </children>
+             </AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

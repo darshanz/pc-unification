@@ -1,15 +1,30 @@
-package com.sudarshanz.unification;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+package com.sudarshanz.unification.ui;
+
+import com.sudarshanz.unification.Expression;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Pane;
+
+import java.sql.SQLException;
+import java.util.*;
 
 /**
- * Example Unification console
+ *
+ * MainController
+ * Main screen of the Java FX application
  *
  * @author Sudarshan
- *
  */
-public class Unification {
+public class MainController {
 
     public final static String FAIL = "FAIL";
     public final static String EMPTY = "EMPTY";
@@ -19,30 +34,90 @@ public class Unification {
     private static String E2 = "(friends (sister Nancy) (brother Y))";
 
 
-    public static void main(String[] args){
+    @FXML
+    TextField txtFirst;
+    @FXML
+    TextField txtSecond;
+    @FXML
+    TextArea txtAreaOutput;
 
-        //First Expression
-        System.out.println("Please enter the first Expression:");
-        Scanner scanExpression1 = new Scanner(System.in);
-        String expression1 = scanExpression1.nextLine();
-
-        //Second Expression
-        System.out.println("Please enter the second Expression:");
-        Scanner scanExpression2 = new Scanner(System.in);
-        String expression2 = scanExpression2.nextLine();
-
-        String result = unify(new Expression(expression1), new Expression(expression2));
-        System.out.println("Result:");
-        System.out.println(result);
-    }
+    private ScreenManager manager;
 
     /**
-     * Unification method.
-     * @param expression1
-     * @param expression2
-     * @return
+     * Initialize with session
+     * @param screenManager
      */
-    private static String unify( Expression expression1, Expression expression2){
+    public void initWIthSession(final ScreenManager screenManager) {
+
+        Task task = new Task<Void>() {
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+
+            }
+            @Override public Void call() {
+                 //do initiaizations here
+
+                manager = screenManager;
+                return null;
+            }
+        };
+        new Thread(task).start();
+    }
+
+    @FXML
+    public void handleExitAction(){
+         System.exit(0);
+    }
+
+    @FXML
+    public void handleLoadExampleAction(){
+         txtFirst.setText(E1);
+         txtSecond.setText(E2);
+    }
+
+    @FXML
+    public void handleAboutAction(){
+        AboutDialogController aboutDialogController =  manager.getAboutDialog();
+        aboutDialogController.showDialog();
+    }
+
+    @FXML
+    public void onUnify(){
+        if(txtFirst.getText().isEmpty() && txtSecond.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.NONE,"Please enter the input expressions.", ButtonType.OK);
+            alert.setTitle("Empty Expressions");
+            alert.show();
+
+            return;
+        }
+
+
+         if(txtFirst.getText().isEmpty()){
+             Alert alert = new Alert(Alert.AlertType.NONE,"Please enter first expression.", ButtonType.OK);
+             alert.setTitle("Empty Expression");
+             alert.show();
+
+             return;
+         }
+
+        if(txtSecond.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.NONE,"Please enter second expression.", ButtonType.OK);
+            alert.setTitle("Empty Expression");
+            alert.show();
+
+            return;
+        }
+
+
+        String result = unify(new Expression(txtFirst.getText()), new Expression(txtSecond.getText()));
+        txtAreaOutput.setText(result);
+
+    }
+
+
+
+    private static String unify(Expression expression1, Expression expression2){
 
         if((expression1.getType() == Expression.TYPE_ATOM && expression2.getType() == Expression.TYPE_ATOM) || (expression1.isEmptyList() && expression2.isEmptyList())){
 
